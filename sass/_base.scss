@@ -13,3 +13,44 @@ $color-grey-dark-2: #6D5D4B;
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //10ppx/16px 1rem= 16px;
+}
+
+body{
+  font-family: $font-primary;
+  color: $color-grey-dark-1;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.container{
+  display: grid;
+  //if content grows, you want the row to grow with it
+  // 40vw: if the width decrease, make the content inside increase to adapt
+  //this is in order of each section
+  grid-template-rows: 80vh min-content auto 40vw repeat(3, min-content);
+
+  //8rem for the side bar and then the other columns
+  //never grows larger than 14rem, but it can adapt when it gets smaller
+  //because the 1rem is not specific, it starts to shrink first when the vp gets smaller
+  //put it in a minmax because we want there at least be a little margin at all times
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start]
+                          repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+                          [center-end] minmax(6rem, 1fr) [full-end];
+  & > * {
+    padding: 40px;
+    font-size: 3rem;
+  }
+
+}
