@@ -39,7 +39,7 @@ body{
   //if content grows, you want the row to grow with it
   // 40vw: if the width decrease, make the content inside increase to adapt
   //this is in order of each section
-  grid-template-rows: 80vh min-content auto 40vw repeat(3, min-content);
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
 
   //8rem for the side bar and then the other columns
   //never grows larger than 14rem, but it can adapt when it gets smaller
